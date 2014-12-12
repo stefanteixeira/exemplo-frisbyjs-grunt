@@ -9,4 +9,5 @@ frisby.create('Teste de POST com sucesso')
   .expectJSON({
     email: 'stefanfk@gmail.com'
   })
+  .inspectJSON()
 .toss();
