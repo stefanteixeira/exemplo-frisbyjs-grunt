@@ -1,13 +1,11 @@
 var frisby = require('frisby');
 
-frisby.create('Teste de POST com sucesso')
+frisby.create('Teste de POST sem sucesso')
   .post('http://apifrisbypost.keeptesting.com.br/user',
-  { email: 'stefanfk@gmail.com' },
-  { json: true },
   { headers: {'Content-Type': 'x-www-form-urlencoded' }})
-  .expectStatus(200)
+  .expectStatus(409)
   .expectJSON({
-    email: 'stefanfk@gmail.com'
+    code: 'InvalidArgument',
+    message: 'Email precisa ser informado'
   })
-  .inspectBody()
 .toss();
